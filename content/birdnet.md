@@ -42,6 +42,11 @@ After that, I added a local DNS record for `birdnet.local` using [Pi-hole](https
 
 That was really it! I was surprised at how easy it was to get up and running. I put the Snowball mic out on our porch, ran the cable under a french door, and plugged the pi into a nearby outlet in our living room.
 
+## birds from Cuba and beyond
+When the first detections started coming in, they were incorrect. I don't remember all the birds, but there were a handful from Sub-Saharan Africa and a [Cuban Pewee](https://ebird.org/species/cubpew1).
+
+Thankfully, I was able to find [an issue](https://github.com/mcguirepr89/BirdNET-Pi/issues/988) that helped me fix it. I just had to change the BirdNET model from the installed default of `BirdNET_6K_GLOBAL_MODEL (2020)` to `BirdNET_GLOBAL_6K_V2.4_Model_FP16 (2023)` which was easy to do in the settings of the web interface.
+
 ## listening to peeps
 Of course, I got this all set up right before I needed to start getting ready for a family gathering. I took these two screenshots so I could better explain the whole thing to my mom. Click to enlarge.
 
@@ -52,9 +57,11 @@ I brought in the Snowball that night, since the wind started to pick up and a bu
 
 As I reviewed the detections and their recordings, honestly, I couldn't tell much of a difference. The number of detections per day was similar with each mic. The recordings also sounded similar. I decided to purchase a Snowball mic of my own to use with the system, mostly because of how inexpensive it was with holiday sales. The attached stand is nice, too.
 
-## present and future
+## notifications
 My non-library-property mic arrived in the mail and I got the pi set up in its more permanent location, with the USB cord running through a window this time.
 
 During my last few days of work before the holiday break, I spent a good amount of time daydreaming about all the birds it was hearing and wishing I could access the dashboard while away from home.
 
-From my understanding, the safest way of doing this would be through some sort of VPN instead of exposing it to the web. 
+From my understanding, the safest way of doing this would be through some sort of VPN instead of exposing it to the web. Could/should I use WayVNC built into Raspberry Pi OS? Wireguard? Headscale? I guess I'm just not motivated enough right now to figure it out, so I used the lovely, integrated [Apprise](https://github.com/caronc/apprise) notifications from the settings of the BirdNET-Pi web interface.
+
+I set up both a weekly summary and "uncommon birds" (detected ≤5 times in the last 7 days) notification that gets sent to my email. Hopefully this is enough to sate my curiosity while I'm at work, longing for home. 
